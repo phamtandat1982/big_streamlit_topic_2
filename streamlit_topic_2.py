@@ -12,7 +12,7 @@ st.cache(persist=True)
 data=pd.read_csv("OnlineRetail.csv",encoding='latin1')
 data1=pd.read_csv('rfm_segments.csv')
 #menu
-menu = ['Introduction','Business Objective','Build project','Interaction 1','Interaction 2']
+menu = ['Introduction','Business Objective','Data exploring & preprocessing','Build project','Interaction 1','Interaction 2']
 choice = st.sidebar.selectbox('Menu',menu)
 if choice == 'Introduction':
     st.subheader('Topic 2: Phân khúc khách hàng')
@@ -32,7 +32,7 @@ elif choice == 'Business Objective':
 
     st.write('''
     ##### Mục tiêu của dự án: xây dựng hệ thống phân cụm khách hàng dựa trên các thông tin do công ty cung cấp từ đó có thể giúp công ty xác định các nhóm khách hàng khác nhau để có thể có chiến lược kinh doanh, chăm sóc khách hàng phù hợp.''')
-elif choice == 'Build project':
+elif choice == 'Data exploring & preprocessing':   
     st.subheader ('Exploring dataset')
     report = pp.ProfileReport(data, title="Exploring dataset").to_html()
     components.html(report, height=1000, width=950,scrolling=True)
@@ -42,6 +42,7 @@ elif choice == 'Build project':
     st.subheader('Rescaling the Attribute')
     mydata1=pd.read_pickle('rfm_scaled')
     st.dataframe(mydata1)
+elif choice == 'Build project':
     st.subheader ('Build model')
     st.write('#### RFM model')
     st.image('RFM_SegmentsTopic2.png')
