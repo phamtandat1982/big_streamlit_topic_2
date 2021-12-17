@@ -4,6 +4,8 @@ import numpy as np
 import pydeck as pdk 
 import altair as alt
 import plotly.express as px
+from PIL import Image
+st.cache()
 #read data
 data=pd.read_csv("OnlineRetail.csv",encoding='latin1')
 data1=pd.read_csv('rfm_segments.csv')
@@ -44,11 +46,13 @@ elif choice == 'Build project':
     st.image('RFM_SegmentsTopic2.png')
     st.image('scatter_plot_RFM.png')
     st.write('#### Kmean Cluster with Elbow method model')
-    st.image(r'C:\Users\MINH\Documents\GitHub\big_streamlit_topic_2\KMean_SegmentsTopic2.jpeg')
-    st.image(r'C:\Users\MINH\Documents\GitHub\big_streamlit_topic_2\scatter_plot_Kmean.jpg')
+    image = Image.open(r'C:\Users\MINH\Documents\GitHub\big_streamlit_topic_2\KMean_SegmentsTopic2.jpeg') 
+    st.image(image)
+    #st.image('KMean_SegmentsTopic2.jpeg')
+    st.image('scatter_plot_Kmean.jpg')
     st.write('#### Hierachy Clustering')
-    st.image(r'C:\Users\MINH\Documents\GitHub\big_streamlit_topic_2\HCSegmentsTopic2.jpg')
-    st.image(r'C:\Users\MINH\Documents\GitHub\big_streamlit_topic_2\scatter_plot_HC.jpg')
+    st.image('HCSegmentsTopic2.jpg')
+    st.image('scatter_plot_HC.jpg')
     st.subheader ('Model selection')
     st.write('##### RFM model selected due to its simple, easy to understand, high accuracy')
 elif choice == 'Interaction 1':
