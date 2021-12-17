@@ -4,7 +4,6 @@ import numpy as np
 import pydeck as pdk 
 import altair as alt
 import plotly.express as px
-from PIL import Image
 st.cache()
 #read data
 data=pd.read_csv("OnlineRetail.csv",encoding='latin1')
@@ -46,13 +45,11 @@ elif choice == 'Build project':
     st.image('RFM_SegmentsTopic2.png')
     st.image('scatter_plot_RFM.png')
     st.write('#### Kmean Cluster with Elbow method model')
-    image = Image.open(r'C:\Users\MINH\Documents\GitHub\big_streamlit_topic_2\KMean_SegmentsTopic2.jpeg') 
-    st.image(image)
-    #st.image('KMean_SegmentsTopic2.jpeg')
-    st.image('scatter_plot_Kmean.jpg')
+    mydata2=pd.read_pickle('Kmean_model_result')
+    st.dataframe(mydata2)
     st.write('#### Hierachy Clustering')
-    st.image('HCSegmentsTopic2.jpg')
-    st.image('scatter_plot_HC.jpg')
+    mydata3=pd.read_pickle('HC_model_result')
+    st.dataframe(mydata3)
     st.subheader ('Model selection')
     st.write('##### RFM model selected due to its simple, easy to understand, high accuracy')
 elif choice == 'Interaction 1':
