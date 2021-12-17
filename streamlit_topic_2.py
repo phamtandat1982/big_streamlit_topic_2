@@ -7,7 +7,6 @@ import streamlit.components.v1 as components
 import pydeck as pdk 
 import altair as alt
 import plotly.express as px
-st.cache(persist=True)
 #read data
 data=pd.read_csv("OnlineRetail.csv",encoding='latin1')
 data1=pd.read_csv('rfm_segments.csv')
