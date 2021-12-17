@@ -1,9 +1,6 @@
 import streamlit as st
 import pandas as pd
 import numpy as np 
-from pandas_profiling import profile_report
-import pandas_profiling as pp
-import streamlit.components.v1 as components
 import pydeck as pdk 
 import altair as alt
 import plotly.express as px
@@ -33,8 +30,8 @@ elif choice == 'Business Objective':
     ##### Mục tiêu của dự án: xây dựng hệ thống phân cụm khách hàng dựa trên các thông tin do công ty cung cấp từ đó có thể giúp công ty xác định các nhóm khách hàng khác nhau để có thể có chiến lược kinh doanh, chăm sóc khách hàng phù hợp.''')
 elif choice == 'Data exploring & preprocessing':   
     st.subheader ('Exploring dataset')
-    report = pp.ProfileReport(data, title="Exploring dataset").to_html()
-    components.html(report, height=1000, width=950,scrolling=True)
+    st.dataframe(data.head(3))
+    st.dataframe(data.describe())
     st.subheader('Data preprocessing')
     mydata=pd.read_pickle('rfm_dp')
     st.dataframe(mydata)
@@ -47,11 +44,11 @@ elif choice == 'Build project':
     st.image('RFM_SegmentsTopic2.png')
     st.image('scatter_plot_RFM.png')
     st.write('#### Kmean Cluster with Elbow method model')
-    st.image('Kmean_SegmentsTopic2.png')
-    st.image('scatter_plot_Kmean.png')
+    st.image('Kmean_SegmentsTopic2.jpeg')
+    st.image('scatter_plot_Kmean.jpg')
     st.write('#### Hierachy Clustering')
-    st.image('HC_SegmentsTopic2.png')
-    st.image('scatter_plot_HC.png')
+    st.image('HCSegmentsTopic2.jpg')
+    st.image('scatter_plot_HC.jpg')
     st.subheader ('Model selection')
     st.write('##### RFM model selected due to its simple, easy to understand, high accuracy')
 elif choice == 'Interaction 1':
