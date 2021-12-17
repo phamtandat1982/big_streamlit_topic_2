@@ -1,0 +1,1 @@
+web: sh setup.sh && streamlit run streamlit_topic_2.py
