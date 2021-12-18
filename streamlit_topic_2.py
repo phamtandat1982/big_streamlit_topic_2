@@ -9,7 +9,7 @@ st.cache()
 data=pd.read_csv("OnlineRetail.csv",encoding='latin1')
 data1=pd.read_csv('rfm_segments.csv')
 #menu
-menu = ['Introduction','Business Objective','Data exploring & preprocessing','Build project','Interaction 1','Interaction 2']
+menu = ['Introduction','Business Objective','Data exploring & preprocessing','Build project','Interaction 1','Interaction 2','Recommendation']
 choice = st.sidebar.selectbox('Menu',menu)
 if choice == 'Introduction':
     st.subheader('Topic 2: Phân khúc khách hàng')
@@ -104,4 +104,7 @@ elif choice == 'Interaction 2':
         data1=data1[data1['Customer_ID'].isin(cus_id)]
     
     data1
-
+elif choice == 'Recommendation':  
+    st.subheader ('Recommendation')
+    st.write('#### Với 8 segments, có thể tóm tắt đặc điểm của 8 nhóm khách hàng và các gợi ý mà doanh nghiệp có thể tham khảo để nâng cao hoạt động kinh doanh:')
+    st.image('Picture7.jpg')
